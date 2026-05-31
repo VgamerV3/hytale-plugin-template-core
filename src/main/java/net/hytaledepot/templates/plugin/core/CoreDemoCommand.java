@@ -22,7 +22,7 @@ public final class CoreDemoCommand extends AbstractCommand {
   @Override
   protected CompletableFuture<Void> execute(CommandContext ctx) {
     state.incrementCommandRequests();
-    String sender = String.valueOf(ctx.sender().getDisplayName());
+    String sender = String.valueOf(ctx.sender().getUsername());
     String action = parseAction(ctx.getInputString());
 
     String result = demoService.applyAction(state, sender, action, heartbeatTicks.get());
